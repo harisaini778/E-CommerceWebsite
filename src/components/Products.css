@@ -1,0 +1,9 @@
+.product-container {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 200px;
+}
+.product-image{
+    size: 2x;
+}
