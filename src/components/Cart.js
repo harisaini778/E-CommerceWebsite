@@ -30,38 +30,37 @@ const Cart = () => {
     const totalQuantity = cartElements.reduce((total, item) => total + item.quantity * item.price, 0);
 
     return (
-      <div>
+      <div className="cart-products">
         {cartElements.map((item, index) => (
           <div key={index}>
             <Row>
               <Col>
                 <img src={item.imageUrl} alt={item.title} className="cart-image" />
+                <p>{item.title}</p>
               </Col>
-              <Col>{item.title}</Col>
-              <Col>${item.price}</Col>
+              <Col><p className="product-price">${item.price}</p></Col>
               <Col>
-                {item.quantity}
-                <input type="number" />
-                <Button>Remove</Button>
+                <input type="number" value={item.quantity} className="input-box" />
+                <Button className="btn-danger remove-btn">Remove</Button>
               </Col>
             </Row>
           </div>
         ))}
         <Row>
-          <h1>Total Price : {totalQuantity} </h1>
+          <h4 className="total-price">Total Price : ${totalQuantity} </h4>
         </Row>
       </div>
     );
   };
 
   return (
-    <div className="d-flex justify-content-end vh-100">
+    <div className="d-flex justify-content-end vh-100 cart-align">
       <Card>
         <Container>
-          <h1>Cart</h1>
+          <h1 className="cart-heading">Cart</h1>
         </Container>
         <Container>
-          <Row>
+          <Row className="cart-details">
             <Col xs={4}>Item</Col>
             <Col xs={4}>Price</Col>
             <Col xs={4}>Quantity</Col>
