@@ -1,9 +1,21 @@
 .product-container {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 200px;
+  margin-bottom: 10vh ;
 }
 .product-image{
     size: 2x;
+}
+.product-heading{
+    margin-top:20vh;
+    margin-bottom: 5vh;
+}
+.product-title{
+    margin-bottom: 4vh;
+}
+.product-price{
+    margin-top: 4vh;
+    margin-left: 10vw;
+}
+.product-button{
+    margin-top: 4vh;
+    margin-right: 10vw;
 }
