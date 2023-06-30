@@ -1,18 +1,22 @@
-.row{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-self: center;
-    height: 10vh;
+.navbar{
+height : 100px;
 }
-.col{
-    padding: 20px;
+.navbar-brand{
+    font-size: 100px;
 }
-.header-title{
-    text-align: center;
+.overlay-cart-container{
+    position :fixed;
+    top:10vh;
+    left: 0;
+    width : 100vw;
+    height : 200vh;
+    background-color: rgba(0,0,0,0);
+    z-index: 999;
 }
-/* .button{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: row;
-} */
+.nav-header{
+    position : fixed;
+}
+.cart-button{
+    border-radius: 40px  !important; 
+    margin-left: 20px !important;
+}

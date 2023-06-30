@@ -1,39 +1,38 @@
 import React from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import  {Button, Container} from "react-bootstrap";
-// import Container from "react-bootstrap/Container";
+import { Button, Container, Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import "./Header.css";
 import Cart from "./Cart";
 import { useState } from "react";
 
 const Header = () => {
+  const [cartToggle, setCartToggle] = useState(false);
 
-    const [cartToggle, setCartToggle] = useState(false);
+  const cartDisplayHandler = () => {
+    setCartToggle(!cartToggle);
+  };
 
-    const cartDisplayHandeler = () => {
-        setCartToggle(true);
-    }
-
-    return (
-        <div>
-            <Nav className="bg-dark">  
-            <Container>
-            <Row className="row">
-            <Col className="text-white col">Home</Col>
-            <Col className="text-white col">Store</Col>
-            <Col className="text-white col">About</Col>
-                        <Col className=""><Button className="button" onClick={cartDisplayHandeler}>Cart</Button></Col> 
-            </Row>
-             </Container>       
-            </Nav>
-            <Nav className="bg-dark">
-                <Container><h1 className="text-white header-title">The Generics</h1> </Container>
-            </Nav>
-            {cartToggle && <Cart/>}
+  return (
+    <Navbar expand="lg" className="fixed-top bg-dark navbar" variant="dark">
+      <Container>
+        <Navbar.Brand><h1>The Generics</h1></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="ml-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#store">Store</Nav.Link>
+            <Nav.Link href="#about">About</Nav.Link>
+          </Nav>
+          <Button onClick={cartDisplayHandler} className="cart-button btn-light">Cart</Button>
+        </Navbar.Collapse>
+      </Container>
+      {cartToggle && (
+        <div className="overlay-cart-container">
+          <Cart />
         </div>
-    );
-}
+      )}
+    </Navbar>
+  );
+};
 
 export default Header;

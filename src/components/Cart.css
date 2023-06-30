@@ -1,0 +1,16 @@
+.cart-image{
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    margin: 0;
+}
+.cart-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.cart-heading{
+    text-align: center;
+    padding-left: 20px;
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import "./Cart.css";
 
 const Cart = () => {
   const cartElements = [
@@ -25,7 +27,7 @@ const Cart = () => {
   ];
 
   const CartProducts = () => {
-    const totalQuantity = cartElements.reduce((total, item) => total + item.quantity, 0);
+    const totalQuantity = cartElements.reduce((total, item) => total + item.quantity * item.price, 0);
 
     return (
       <div>
@@ -33,7 +35,7 @@ const Cart = () => {
           <div key={index}>
             <Row>
               <Col>
-                <img src={item.imageUrl} alt={item.title} />
+                <img src={item.imageUrl} alt={item.title} className="cart-image" />
               </Col>
               <Col>{item.title}</Col>
               <Col>${item.price}</Col>
@@ -46,28 +48,27 @@ const Cart = () => {
           </div>
         ))}
         <Row>
-          <Col>
-            <h1>Total Price : </h1>
-            <p>{totalQuantity}</p>
-          </Col>
+          <h1>Total Price : {totalQuantity} </h1>
         </Row>
       </div>
     );
   };
 
   return (
-    <div>
-      <Container>
-        <h1>Cart</h1>
-      </Container>
-      <Container>
-        <Row>
-          <Col>Item</Col>
-          <Col>Price</Col>
-          <Col>Quantity</Col>
-        </Row>
-      </Container>
-      <CartProducts />
+    <div className="d-flex justify-content-end vh-100">
+      <Card>
+        <Container>
+          <h1>Cart</h1>
+        </Container>
+        <Container>
+          <Row>
+            <Col xs={4}>Item</Col>
+            <Col xs={4}>Price</Col>
+            <Col xs={4}>Quantity</Col>
+          </Row>
+        </Container>
+        <CartProducts />
+      </Card>
     </div>
   );
 };
