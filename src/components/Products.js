@@ -30,8 +30,20 @@ const Products = () => {
     }
   ];
 
-  const addToCart = (product) => {
-    setCartData([...cartData, product]);
+   const addToCart = (product) => {
+    const existingProduct = cartData.find((item) => item.title === product.title);
+
+    if (existingProduct) {
+      const updatedCartData = cartData.map((item) => {
+        if (item.title === product.title) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setCartData(updatedCartData);
+    } else {
+      setCartData([...cartData, { ...product, quantity: 1 }]);
+    }
   };
 
   const rows = [];

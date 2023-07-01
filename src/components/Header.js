@@ -28,7 +28,7 @@ const Header = () => {
       </Container>
       {cartToggle && (
         <div className="overlay-cart-container">
-          <Cart />
+          <Cart cartClose={cartDisplayHandler} />
         </div>
       )}
     </Navbar>

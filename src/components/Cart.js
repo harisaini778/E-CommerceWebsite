@@ -6,12 +6,16 @@ import { Card } from "react-bootstrap";
 import "./Cart.css";
 import { CartContext } from "./CartContext";
 
-const Cart = () => {
+const Cart = (props) => {
   const { cartData } = useContext(CartContext);
 
   const CartProducts = () => {
     if (!cartData || cartData.length === 0) {
-      return <p>No items in the cart</p>;
+      return <Row>
+        <Col xs={12}>
+          No items in the cart
+        </Col>
+         </Row>;
     }
 
     const totalQuantity = cartData.reduce(
@@ -24,14 +28,14 @@ const Cart = () => {
         {cartData.map((item, index) => (
           <div key={index}>
             <Row>
-              <Col>
+              <Col xs={4}>
                 <img src={item.imageUrl} alt={item.title} className="cart-image" />
-                <p>{item.title}</p>
+                <p className="item-title">{item.title}</p>
               </Col>
-              <Col>
-                <p className="product-price">${item.price}</p>
+              <Col xs={4}>
+                <p className="item-price">${item.price}</p>
               </Col>
-              <Col>
+              <Col xs={4}>
                 <input type="number" value={item.quantity} className="input-box" />
                 <Button className="btn-danger remove-btn">Remove</Button>
               </Col>
@@ -47,8 +51,9 @@ const Cart = () => {
 
   return (
     <div className="d-flex justify-content-end vh-100 cart-align">
-      <Card>
+      <Card className="cart-card">
         <Container>
+          <Button className="close-btn btn-dark" onClick={props.cartClose}>X</Button>
           <h1 className="cart-heading">Cart</h1>
         </Container>
         <Container>
