@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import "./Products.css";
+import { CartContext } from "./CartContext";
 
 const Products = () => {
+  const { cartData, setCartData } = useContext(CartContext);
+
   const productsArr = [
     {
       title: 'Album 1',
@@ -27,6 +30,10 @@ const Products = () => {
     }
   ];
 
+  const addToCart = (product) => {
+    setCartData([...cartData, product]);
+  };
+
   const rows = [];
 
   for (let i = 0; i < productsArr.length; i += 2) {
@@ -43,7 +50,12 @@ const Products = () => {
               <h5 className="product-price">Price: ${firstProduct.price}</h5>
             </Col>
             <Col>
-              <Button className="product-button">Add to cart</Button>
+              <Button
+                className="product-button"
+                onClick={() => addToCart(firstProduct)}
+              >
+                Add to cart
+              </Button>
             </Col>
           </Row>
         </Col>
@@ -56,7 +68,12 @@ const Products = () => {
                 <h5 className="product-price">Price: ${secondProduct.price}</h5>
               </Col>
               <Col>
-                <Button className="product-button">Add to cart</Button>
+                <Button
+                  className="product-button"
+                  onClick={() => addToCart(secondProduct)}
+                >
+                  Add to cart
+                </Button>
               </Col>
             </Row>
           </Col>
@@ -68,12 +85,10 @@ const Products = () => {
   }
 
   return (
-    <div>
-      <Container>
-        <h1 className="product-heading">Music</h1>
-      </Container>
+    <Container>
+      <h1 className="product-heading">Music</h1>
       {rows}
-    </div>
+    </Container>
   );
 };
 

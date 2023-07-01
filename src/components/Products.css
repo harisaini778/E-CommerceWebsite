@@ -12,10 +12,11 @@
     margin-bottom: 4vh;
 }
 .product-price{
-    margin-top: 4vh;
+    margin-top: 3vh;
     margin-left: 10vw;
 }
 .product-button{
     margin-top: 4vh;
     margin-right: 10vw;
+    border-radius: 40px !important;
 }
