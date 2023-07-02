@@ -1,0 +1,17 @@
+.band-img{
+width:350px !important;
+height: 350px !important;
+border-radius: 50% !important;
+margin-top: 50px;
+}
+.main-div{
+    margin-top: 150px;
+}
+.about-text1{
+    margin-top: 80px;
+    text-align: start;
+}
+.about-text2 {
+    margin-top: 20px;
+    text-align: start;
+}
