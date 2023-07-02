@@ -1,8 +1,9 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Nav,Navbar } from "react-bootstrap";
 import musicImg from "./assets/music.jpg";
 import { Row, Col } from "react-bootstrap";
 import "./About.css";
+import {BsFacebook, BsInstagram, BsSpotify, BsYoutube} from "react-icons/bs"
 
 const About = () => {
   return (
@@ -55,6 +56,30 @@ const About = () => {
           </Col>
         </Row>
       </Container>
+      <Navbar className="bg-light" variant="light">
+        <Container>
+        <Navbar.Brand><h1>The Generics</h1></Navbar.Brand>
+        <Navbar.Toggle  aria-controls="basic-navbar-nav"/>
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav>
+              <Nav.Link><span style={{ color: 'black', fontSize: '2em' }}>
+    <BsSpotify/>
+  </span></Nav.Link>
+            <Nav.Link><span style={{ color: 'black', fontSize: '2em' }}>
+    <BsYoutube/>
+  </span></Nav.Link>
+            <Nav.Link><span style={{ color: 'black', fontSize: '2em'}}>
+    <BsFacebook/>
+              </span></Nav.Link>
+              <Nav.Link>
+                <span style={{ color: 'black', fontSize: '2em' }}>
+    <BsInstagram/>
+  </span>
+              </Nav.Link>
+          </Nav>
+          </Navbar.Collapse>
+          </Container>
+      </Navbar>
     </div>
   );
 };
