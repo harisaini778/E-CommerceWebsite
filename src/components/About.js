@@ -12,10 +12,10 @@ const About = () => {
       </Container>
       <Container>
         <Row>
-          <Col xs={12} md={6} lg={4}>
+          <Col xs={12} md={12} lg={4}>
             <img src={musicImg} alt="musicImg" className="band-img" />
           </Col>
-          <Col xs={12} md={6} lg={8}>
+          <Col xs={12} md={12} lg={8}>
             <p className="about-text1">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
