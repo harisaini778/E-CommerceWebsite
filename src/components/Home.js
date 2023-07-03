@@ -48,9 +48,22 @@ const Home = () => {
                             <Col className="m-2">LAS VEGAS, TH</Col>
                             <Col className="m-2">T-MOBILE ARENA</Col>
                             <Col><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
-                        </Row>   </ListGroup.Item>
+                    </Row>   </ListGroup.Item>
+                             <ListGroup.Item>
+                        <Row>
+                            <Col className="m-2">November 16</Col>
+                            <Col className="m-2">CONCORD, MT</Col>
+                            <Col className="m-2">CONCORD PAVILION</Col>
+                            <Col><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
+                        </Row>   
+      </ListGroup.Item>
     </ListGroup>
             </div>
+            <Navbar className="bg-info home-footer" variant="dark">
+                <Container>
+                    <Navbar.Brand><h1>The Generics</h1></Navbar.Brand>
+                </Container>
+            </Navbar>
         </div>
     );
 
