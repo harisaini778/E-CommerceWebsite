@@ -1,0 +1,29 @@
+.main-home-div{
+    margin-top:  120px;
+}
+.home-title1{
+    border:2px solid aqua;
+    border-radius: 5px;
+    width: 30vw;
+    color: white;
+    margin-left: 40px;
+}
+.nav-img{
+    margin-bottom: 30px;
+    margin-left: 20px;
+    font-size: 5rem;
+    color:aqua;
+}
+.home-title2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.home-items{
+    text-align: center;
+}
+.buy-btn{
+    border-radius: 60px !important;
+}
+.list-group{
+    width:75%;
+}
