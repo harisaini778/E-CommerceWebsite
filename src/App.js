@@ -6,6 +6,7 @@ import About from "./components/About";
 import CartContextProvider from "./components/CartContextProvider";
 import "./App.css";
 import Home from "./components/Home";
+import ContactUs from "./components/ContactUs";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
              <Route path="/Home" element={<Home />} />
             <Route path="/About" element={<About />} />
             <Route path="/Store" element={<Products />} />
+            <Route path="/ContactUs" element={<ContactUs/>} />
           </Routes>
         </Router>
       </CartContextProvider>
