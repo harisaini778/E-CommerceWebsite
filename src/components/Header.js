@@ -11,6 +11,8 @@ const Header = () => {
 
  const cartCtx = useContext(CartContext)
 
+  const isLoggedIn = !!cartCtx.token;
+
   return (
     <Navbar expand="lg" className="fixed-top bg-dark navbar" variant="dark">
       <Container>
@@ -19,12 +21,17 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="ml-auto">
             <Nav.Link href="Home">Home</Nav.Link>
-            <Nav.Link href="Store">Store</Nav.Link>
+            {isLoggedIn && <Nav.Link href="Store">Store</Nav.Link>}
             <Nav.Link href="About">About</Nav.Link>
-             <Nav.Link href="Login">LogIn</Nav.Link>
+            {!isLoggedIn && <Nav.Link href="Login">LogIn</Nav.Link>}
+            {isLoggedIn && <Nav.Link href="Login">
+              <Button onClick={cartCtx.logoutHandler} className="btn-info cart-button">
+               LogOut
+              </Button>
+              </Nav.Link>}
             <Nav.Link href="ContactUs">Contact Us</Nav.Link>
           </Nav>
-          <Button onClick={cartCtx.cartDisplayHandler} className="cart-button btn-light">Cart</Button>
+          <Button onClick={cartCtx.cartDisplayHandler} className="cart-button btn-info">Cart</Button>
         </Navbar.Collapse>
       </Container>
        {cartCtx.cartToggle && (
