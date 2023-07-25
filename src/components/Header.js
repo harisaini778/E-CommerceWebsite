@@ -2,15 +2,14 @@ import React from "react";
 import { Button, Container, Navbar } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import "./Header.css";
+import { useContext } from "react";
+import { CartContext } from "./CartContextProvider";
 import Cart from "./Cart";
-import { useState } from "react";
+
 
 const Header = () => {
-  const [cartToggle, setCartToggle] = useState(false);
 
-  const cartDisplayHandler = () => {
-    setCartToggle(!cartToggle);
-  };
+ const cartCtx = useContext(CartContext)
 
   return (
     <Navbar expand="lg" className="fixed-top bg-dark navbar" variant="dark">
@@ -22,14 +21,15 @@ const Header = () => {
             <Nav.Link href="Home">Home</Nav.Link>
             <Nav.Link href="Store">Store</Nav.Link>
             <Nav.Link href="About">About</Nav.Link>
+             <Nav.Link href="Login">LogIn</Nav.Link>
             <Nav.Link href="ContactUs">Contact Us</Nav.Link>
           </Nav>
-          <Button onClick={cartDisplayHandler} className="cart-button btn-light">Cart</Button>
+          <Button onClick={cartCtx.cartDisplayHandler} className="cart-button btn-light">Cart</Button>
         </Navbar.Collapse>
       </Container>
-      {cartToggle && (
+       {cartCtx.cartToggle && (
         <div className="overlay-cart-container">
-          <Cart cartClose={cartDisplayHandler} />
+          <Cart/>
         </div>
       )}
     </Navbar>

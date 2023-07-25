@@ -3,17 +3,20 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Button, Card, Badge } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import "./SeperateProduct.css"
+import { useContext } from "react";
+import { CartContext } from "./CartContextProvider";
 
 const SeparateProduct = () => {
   const { productId } = useParams();
 
-  // Mock product data
+  const cartCtx = useContext(CartContext);
+
   const products = [
     {
       id: 1,
       title: "Album 1",
       price: 100,
-      images: [
+      imageUrl: [
         "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
       ],
       Devices: ["CD", "DVD", "Pendrive", "Memory-Card","Hard-Drive"],
@@ -33,7 +36,7 @@ const SeparateProduct = () => {
       id: 2,
       title: "Album 2",
       price: 50,
-      images: [
+      imageUrl: [
         "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
       ],
       Devices: ["CD", "DVD", "Pendrive", "Memory-Card","Hard-Drive"],
@@ -52,19 +55,19 @@ const SeparateProduct = () => {
     return <h1>Product not found</h1>;
   }
 
-  const { title, price, images, Devices, description, reviews, bankOffers, purchases } = product;
+  const { title, price, imageUrl, Devices, description, reviews, bankOffers, purchases } = product;
 
   return (
-    <Container className="main-container-separateproducts">
-      <h1 className="product-title">{title}</h1>
-      <Row className="product-details-container">
+    <Container className="main-container-separate-products">
+      <h1 className="separate-product-title">{title}</h1>
+      <Row className="separate-product-details-container">
         <Col xs={12} lg={6} md={6}>
           <Row>
             <Col lg={6} md={6} xs={6}>
               <Row>
                 <Col xs={6} md={6} lg={6}>
-                     {<div className="product-images-container">
-            {images.map((image, index) => (
+                     {<div className="separate-product-images-container">
+            {imageUrl.map((image, index) => (
               <img
                 key={index}
                 src={image}
@@ -75,8 +78,8 @@ const SeparateProduct = () => {
           </div>}</Col>
               </Row>
               <Row>
-                <Col xs={6} md={6} lg={6}> {<div className="product-images-container">
-            {images.map((image, index) => (
+                <Col xs={6} md={6} lg={6}> {<div className="separate-product-images-container">
+            {imageUrl.map((image, index) => (
               <img
                 key={index}
                 src={image}
@@ -87,8 +90,8 @@ const SeparateProduct = () => {
           </div>}</Col>
               </Row>
               <Row>
-                <Col xs={6} md={6} lg={6}>{<div className="product-images-container">
-            {images.map((image, index) => (
+                <Col xs={6} md={6} lg={6}>{<div className="separate-product-images-container">
+            {imageUrl.map((image, index) => (
               <img
                 key={index}
                 src={image}
@@ -100,31 +103,31 @@ const SeparateProduct = () => {
               </Row>
             </Col>
             <Col xs={6} md={6} lg={6}>
-                {<div className="product-images-container">
-            {images.map((image, index) => (
+                {<div className="separate-product-images-container">
+            {imageUrl.map((image, index) => (
               <img
                 key={index}
                 src={image}
                 alt={title}
-                className="product-image"
+                className="separate-product-image"
               />
             ))}
           </div>}
             </Col>
          </Row>
         </Col>
-        <Col xs={12} md={6} lg={6} >
- <Card className="product-details-card">
+        <Col xs={12} md={12} lg={6} >
+ <Card className="separate-product-details-card">
             <Card.Body>
               <Card.Title>Price: ${price}</Card.Title>
-              <Card.Text className="product-description">
+              <Card.Text className="separate-product-description">
                 {description}
               </Card.Text>
-              <div className="product-Devices-container">
+              <div className="separate-product-Devices-container">
                 <h3>Devices:</h3>
-                <ul className="product-Devices-list">
+                <ul className="separate-product-Devices-list">
                   {Devices.map((size, index) => (
-                    <li key={index} className="product-size-item">
+                    <li key={index} className="separate-product-size-item">
                   <Badge variant="secondary" className="size-badge">
                         {size}
                       </Badge>
@@ -132,28 +135,28 @@ const SeparateProduct = () => {
                   ))}
                 </ul>
               </div>
-              <div className="product-reviews-container">
+              <div className="separate-product-reviews-container">
                 <h3>Reviews:</h3>
-                <ul className="product-reviews-list">
+                <ul className="separate-product-reviews-list">
                   {reviews.map((review) => (
-                    <li key={review.id} className="product-review-item">
+                    <li key={review.id} className="separate-product-review-item">
                       <strong>{review.author}</strong>: {review.comment}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="product-bank-offers-container">
+              <div className="separate-product-bank-offers-container">
                 <h3>Bank Offers:</h3>
-                <ul className="product-bank-offers-list">
+                <ul className="separate-product-bank-offers-list">
                   {bankOffers.map((offer) => (
-                    <li key={offer.id} className="product-bank-offer-item">
+                    <li key={offer.id} className="separate-product-bank-offer-item">
                       {offer.bank}: {offer.offer}
                     </li>
                   ))}
                 </ul>
               </div>
               <h3>Number of Purchases: {purchases}</h3>
-              <Button variant="primary" className="add-to-cart-button">
+              <Button variant="primary" className="add-to-cart-button" onClick={()=>cartCtx.addToCart(product)}>
                 Add to Cart
               </Button>
             </Card.Body>

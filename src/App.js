@@ -8,6 +8,7 @@ import "./App.css";
 import Home from "./components/Home";
 import ContactUs from "./components/ContactUs";
 import SeparateProduct from "./components/SeperateProduct";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/Store" element={<Products />} />
             <Route path="/ContactUs" element={<ContactUs />} />
             <Route path="/:productId" element={<SeparateProduct />} />
+            <Route path="/Login" element={<Login/>} />
           </Routes>
         </Router>
       </CartContextProvider>
