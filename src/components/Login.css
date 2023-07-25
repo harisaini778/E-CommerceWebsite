@@ -5,7 +5,11 @@
     align-items: center;
     margin-top: 180px;
     margin-bottom: 50px;
-
+}
+@media(max-width:576px){
+    .main-body-login{
+        width:100vw !important ;
+    }
 }
 .background-video {
     position: fixed;
@@ -24,6 +28,12 @@
     left: 20%;
     background-color: black !important;
     color: white !important;
+}
+@media(max-width:576px){
+    .card-body-login{
+        width:80vw !important;
+        left: 5% !important;
+    }
 }
 
 .card-border-login {
