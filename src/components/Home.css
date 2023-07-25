@@ -28,7 +28,7 @@
     
 }
 .home-title1{
-    border:3px solid rgb(0, 195, 195) !important;
+    border:3px solid aqua !important;
     border-radius: 5px;
     width: 30vw;
     color: white;
@@ -38,7 +38,7 @@
     margin-bottom: 30px;
     margin-left: 20px;
     font-size: 5rem;
-    color:rgb(2, 215, 215);
+    color:aqua;
 }
 .home-title2{
     margin-top: 20px;
@@ -49,7 +49,7 @@
     text-align: center;
 }
 .buy-btn{
-    background-color: rgb(0, 214, 214);
+    background-color:aqua;
     border-radius: 60px !important;
     transition:transform 0.3s ease !important; 
 }

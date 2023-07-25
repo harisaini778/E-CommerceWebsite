@@ -166,7 +166,7 @@ const LogIn = () => {
           </Card>
         </Container>
           </div>
-              <Navbar className="bg-light" variant="light">
+              <Navbar className="bg-light navbar-footer-login" variant="light">
         <Container>
           <Navbar.Brand>
             <h1>The Generics</h1>

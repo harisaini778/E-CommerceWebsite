@@ -78,3 +78,6 @@
 .existing-account-link:hover {
     color: rgb(253, 193, 193);
 }
+.navbar-footer-login{
+    margin-bottom: 0px !important;
+}
