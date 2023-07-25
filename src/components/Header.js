@@ -14,11 +14,11 @@ const Header = () => {
   const isLoggedIn = !!cartCtx.token;
 
   return (
-    <Navbar expand="lg" className="fixed-top bg-dark navbar" variant="dark">
+    <Navbar expand="lg" className="fixed-top navbar navbar-link-header" variant="dark">
       <Container>
         <Navbar.Brand><h1>The Generics</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end navbar-link-header">
           <Nav className="ml-auto">
             <Nav.Link href="Home">Home</Nav.Link>
             {isLoggedIn && <Nav.Link href="Store">Store</Nav.Link>}

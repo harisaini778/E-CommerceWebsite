@@ -28,33 +28,33 @@ const Home = () => {
                         <Row>
                             <Col className="m-2">August 16</Col>
                             <Col className="m-2">DETROIT, MI</Col>
-                            <Col className="m-2">DTE ENERGY MUSIC THEATRE</Col>
-                            <Col><Button className="bg-info buy-btn pt-2 mt-2"><h5>Buy Tickets</h5></Button></Col>
+                            <Col className="m-2">DTE MUSIC THEATRE</Col>
+                            <Col xs={12} lg={4}><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
                         </Row>   
       </ListGroup.Item>
       <ListGroup.Item className="custom-list-item"><Row>
                             <Col className="m-2">August 28</Col>
                             <Col className="m-2">TORONTO, ON</Col>
                             <Col className="m-2">BUDWEISER STAGE</Col>
-                            <Col><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
+                            <Col xs={12} lg={4}><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
                         </Row>   </ListGroup.Item>
       <ListGroup.Item className="custom-list-item"><Row>
                             <Col className="m-2">September 26</Col>
                             <Col className="m-2">BRISTOV, VA</Col>
                             <Col className="m-2">JIGGY LUBE LIVE</Col>
-                            <Col><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
+                            <Col xs={12} lg={4} ><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
                         </Row>   </ListGroup.Item>
       <ListGroup.Item className="custom-list-item"><Row>
                             <Col className="m-2">September 29</Col>
                             <Col className="m-2">PHOENIX, AZ</Col>
                             <Col className="m-2">AK-CHIN PAVILION</Col>
-                            <Col><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
+                            <Col xs={12} lg={4}><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
                         </Row>   </ListGroup.Item>
       <ListGroup.Item className="custom-list-item"><Row>
                             <Col className="m-2">October 10</Col>
                             <Col className="m-2">LAS VEGAS, TH</Col>
                             <Col className="m-2">T-MOBILE ARENA</Col>
-                            <Col><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
+                            <Col xs={12} lg={4}><Button className="bg-info buy-btn pt-2"><h5>Buy Tickets</h5></Button></Col>
                     </Row>   </ListGroup.Item>               
     </ListGroup>
             </div>

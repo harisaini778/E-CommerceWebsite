@@ -38,14 +38,14 @@ const Cart = () => {
         {cartCtx.cartData.map((item, index) => (
           <div key={index}>
             <Row>
-              <Col xs={4}>
+              <Col xs={6} md={4} lg={4}>
                 <img src={item.imageUrl} alt={item.title} className="cart-image" />
                 <p className="item-title">{item.title}</p>
               </Col>
-              <Col xs={4}>
+              <Col xs={6} md={4} lg={4}>
                 <p className="item-price">${item.price}</p>
               </Col>
-              <Col xs={4}>
+              <Col xs={12} md={4} lg={4}>
                 <input
                   type="number"
                   value={item.quantity}
@@ -78,9 +78,9 @@ const Cart = () => {
         </Container>
         <Container>
           <Row className="cart-details">
-            <Col xs={4}>Item</Col>
-            <Col xs={4}>Price</Col>
-            <Col xs={4}>Quantity</Col>
+            <Col xs={12} md={4} lg={4}>Item</Col>
+            <Col xs={12} md={4} lg={4}>Price</Col>
+            <Col xs={12} md={4} lg={4}>Quantity</Col>
           </Row>
         </Container>
         <CartProducts />
