@@ -78,6 +78,12 @@
         overflow-y: auto;
         /* Add vertical scrollbar when content exceeds the height */
 }
+@media(max-width:576px){
+    .cart-card{
+        position: relative;
+        left: 13px;
+    }
+}
 .close-btn{
     top:20 !important;
     right: 0 !important;
