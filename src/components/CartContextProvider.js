@@ -41,7 +41,7 @@ const CartContextProvider = (props) => {
   return username;
 };
 
-const username = extractUsernameFromEmail(userEmail);
+const username = userEmail ? extractUsernameFromEmail(userEmail) : ""; // Default username to an empty string if userEmail is null
   
 console.log(username); // Output: "example"
  

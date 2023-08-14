@@ -25,8 +25,16 @@ height : 120px;
 .nav-header{
     position : fixed;
 }
-.cart-button{
+.header-button{
     border-radius: 20px  !important; 
     /* margin-left: 0px !important;
     padding-bottom: 10px !important; */
+}
+.nav-link-header{
+    transition: transform 0.3s ease !important;
+}
+.nav-link-header:hover{
+    color : white !important;
+    border-bottom: 3px solid white !important;
+    transform : scale(1.1) !important;
 }

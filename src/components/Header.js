@@ -24,21 +24,21 @@ const Header = () => {
           <Nav className="ml-auto">
                  <Stack  direction={window.innerWidth <= 576 ? "vertical" : "horizontal"} gap={2}>
        
-            <Nav.Link href="Home">Home</Nav.Link>
-            {isLoggedIn && <Nav.Link href="Store">Store</Nav.Link>}
-            <Nav.Link href="About">About</Nav.Link>
-            {!isLoggedIn && <Nav.Link href="Login">LogIn</Nav.Link>}
+            <Nav.Link href="Home" className="nav-link-header">Home</Nav.Link>
+            {isLoggedIn && <Nav.Link href="Store" className="nav-link-header">Store</Nav.Link>}
+            <Nav.Link href="About" className="nav-link-header">About</Nav.Link>
+            {!isLoggedIn && <Nav.Link href="Login" className="nav-link-header">LogIn</Nav.Link>}
             {isLoggedIn && <Nav.Link href="Login">
-              <Button onClick={cartCtx.logoutHandler} variant="outline-info" className="m-2">
+              <Button onClick={cartCtx.logoutHandler} variant="outline-info" className="m-2 header-button">
                LogOut
               </Button>
       
               </Nav.Link>}
-              <Nav.Link href="ContactUs">Contact Us</Nav.Link>
+              <Nav.Link href="ContactUs" className="nav-link-header">Contact Us</Nav.Link>
              </Stack>
             </Nav>
         
-          <Button onClick={cartCtx.cartDisplayHandler} className="m-2" variant="outline-info">Cart</Button>
+          <Button onClick={cartCtx.cartDisplayHandler} className="m-2 header-button" variant="outline-info">Cart</Button>
        
         </Navbar.Collapse>
       </Container>
