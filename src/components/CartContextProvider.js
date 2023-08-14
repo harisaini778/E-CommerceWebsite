@@ -45,7 +45,7 @@ const username = userEmail ? extractUsernameFromEmail(userEmail) : ""; // Defaul
   
 console.log(username); // Output: "example"
  
-  const url = `https://crudcrud.com/api/452ad418acd94026b96f4596a692ba42/${username}`;
+  const url = `https://crudcrud.com/api/47259705aebe433f90349979526558ec/${username}`;
 
 const addToCart = (item) => {
   const existingProduct = cartData.find((existingItem) => existingItem.title === item.title);

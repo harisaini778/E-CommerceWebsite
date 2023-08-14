@@ -1,14 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import "./Products.css";
 import { CartContext } from "./CartContextProvider";
+import { Alert } from "react-bootstrap";
+
 
 
 const Products = () => {
 
-const cartCtx = useContext(CartContext);
+  const cartCtx = useContext(CartContext);
+  
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
 
   const productsArr = [
     {
@@ -51,9 +56,16 @@ const cartCtx = useContext(CartContext);
   ];
 
 
+ 
   return (
     <Container>
       <h1 className="product-heading">Music</h1>
+      {/* Display the success message at the top */}
+      {showSuccessMessage && (
+        <Alert variant="success" onClose={() => setShowSuccessMessage(false)} dismissible>
+          Your Item has been added to the cart successfully!
+        </Alert>
+      )}
       <Row>
         {productsArr.map((product) => (
           <Col key={product.id} className="product-container" xs={12} md={6} lg={6}>
@@ -66,13 +78,14 @@ const cartCtx = useContext(CartContext);
               </Col>
               <Col xs={12} md={12} lg={12}>
                 <div className="d-grid">
-                <Button
+                  <Button
                     className="product-button"
                     size="lg"
                     variant="outline-success"
                     onClick={() => {
                       console.log("Add to cart clicked:", product);
                       cartCtx.addToCart(product);
+                      setShowSuccessMessage(true); // Show success message
                     }}
                   >
                     Add to cart

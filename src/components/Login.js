@@ -3,7 +3,7 @@ import { Button, Card, Row } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
-import Alert from 'react-bootstrap/Alert';
+// import Alert from 'react-bootstrap/Alert';
 import "./Login.css";
 import { CartContext } from "./CartContextProvider";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +21,8 @@ const LogIn = () => {
   const [isLogIn, setIsLogin] = useState(false);
   const [isExisting, setIsExisting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-   const [errorMessage, setErrorMessage] = useState(""); // New state for error message
-  const [successMessage, setSuccessMessage] = useState(""); // New state for success message
+  //  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
+  // const [successMessage, setSuccessMessage] = useState(""); // New state for success message
   const navigate = useNavigate();
   const enteredEmail = useRef(null);
   const enteredPassword = useRef(null);
@@ -60,9 +60,9 @@ const LogIn = () => {
       .then((data) => {
         if (data.hasOwnProperty("error")) {
           console.log(data);
-          // alert(data.error.message);  
+          alert(data.error.message);  
 
-          setErrorMessage(data.error.message)
+          // setErrorMessage(data.error.message)
         
           enteredEmail.current.value = "";
           enteredPassword.current.value = "";
@@ -72,20 +72,20 @@ const LogIn = () => {
           enteredPassword.current.value = "";
           cartCtx.loginHandler(data.idToken);
           if (isLogIn) {
-            // alert("Log in successful");
-            setSuccessMessage("Log in successful");
+            alert("Log in successful");
+            // setSuccessMessage("Log in successful");
              navigate("/Store");
           } else {
-            // alert("Your account is created successfully. Now you can log in using your credentials");
-            setSuccessMessage("Your account is created successfully. Now you can log in using your credentials");
+            alert("Your account is created successfully. Now you can log in using your credentials");
+            // setSuccessMessage("Your account is created successfully. Now you can log in using your credentials");
           }
         }
       })
       .catch((error) => {
         setIsLoading(false);
         console.log(error);
-        // alert("An error occurred. Please try again later.");
-        setErrorMessage("An error occurred. Please try again later.");
+        alert("An error occurred. Please try again later.");
+        // setErrorMessage("An error occurred. Please try again later.");
         enteredEmail.current.value = "";
         enteredPassword.current.value = "";
       });
@@ -109,8 +109,8 @@ const LogIn = () => {
       {/* <Header /> */}
     
           
-      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-      {successMessage && <Alert variant="success">{successMessage}</Alert>}
+      {/* {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+      {successMessage && <Alert variant="success">{successMessage}</Alert>} */}
       
 
       <div className="main-body-login">
