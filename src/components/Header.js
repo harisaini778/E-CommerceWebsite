@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Navbar } from "react-bootstrap";
+import { Button, Container, Navbar,Stack} from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import "./Header.css";
 import { useContext } from "react";
@@ -19,19 +19,27 @@ const Header = () => {
         <Navbar.Brand><h1>The Generics</h1></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end navbar-link-header">
+          
+     
           <Nav className="ml-auto">
+                 <Stack  direction={window.innerWidth <= 576 ? "vertical" : "horizontal"} gap={2}>
+       
             <Nav.Link href="Home">Home</Nav.Link>
             {isLoggedIn && <Nav.Link href="Store">Store</Nav.Link>}
             <Nav.Link href="About">About</Nav.Link>
             {!isLoggedIn && <Nav.Link href="Login">LogIn</Nav.Link>}
             {isLoggedIn && <Nav.Link href="Login">
-              <Button onClick={cartCtx.logoutHandler} className="btn-info cart-button">
+              <Button onClick={cartCtx.logoutHandler} variant="outline-info" className="m-2">
                LogOut
               </Button>
+      
               </Nav.Link>}
-            <Nav.Link href="ContactUs">Contact Us</Nav.Link>
-          </Nav>
-          <Button onClick={cartCtx.cartDisplayHandler} className="cart-button btn-info">Cart</Button>
+              <Nav.Link href="ContactUs">Contact Us</Nav.Link>
+             </Stack>
+            </Nav>
+        
+          <Button onClick={cartCtx.cartDisplayHandler} className="m-2" variant="outline-info">Cart</Button>
+       
         </Navbar.Collapse>
       </Container>
        {cartCtx.cartToggle && (

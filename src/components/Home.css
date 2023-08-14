@@ -11,7 +11,7 @@
     z-index: -1;
 }
 .home-navbar-container{
-    background-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
         font-weight: bolder;
         border: none !important;
         border-radius: 0 !important;
@@ -62,7 +62,7 @@ transform : scale(1.2) !important;
 }
 
 .custom-group .custom-list-item {
-    background-color: rgba(255, 255, 255, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
     /* Adjust the opacity here (0.1 means 10% transparent) */
     border: 1px solid white !important;
     border-radius: 5px !important;

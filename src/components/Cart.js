@@ -1,14 +1,68 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect} from "react";
 import { Button, Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import "./Cart.css";
 import { CartContext } from "./CartContextProvider";
+import axios from "axios";
 
 const Cart = () => {
   const cartCtx = useContext(CartContext);
+  const username = localStorage.getItem("username");
+
+  useEffect(() => {
+    fetchCartItems();
+  }, []);
+
+// const fetchCartItems = () => {
+//   axios
+//     .get(`https://crudcrud.com/api/452ad418acd94026b96f4596a692ba42/${username}`)
+//     .then(response => {
+//       if (!response.data) {
+//         throw new Error("Network response was not ok");
+//       }
+
+//       // Extract product data from response and update cart data
+//       const cartItems = response.data.map(item => item.product);
+//       cartCtx.setCartData(cartItems);
+//     })
+//     .catch(error => {
+//       console.error("Error fetching cart items:", error);
+//     });
+// };
+  const fetchCartItems = () => {
+  axios
+    .get(`https://crudcrud.com/api/452ad418acd94026b96f4596a692ba42/${username}`)
+    .then(response => {
+      if (!response.data) {
+        throw new Error("Network response was not ok");
+      }
+
+      // Consolidate cart items with the same title
+      const cartItemsMap = new Map();
+      response.data.forEach(item => {
+        const product = item.product;
+        if (cartItemsMap.has(product.title)) {
+          cartItemsMap.get(product.title).quantity += 1;
+        } else {
+          cartItemsMap.set(product.title, { ...product, quantity: 1 });
+        }
+      });
+
+      // Convert map values to an array of cart items
+      const cartItems = Array.from(cartItemsMap.values());
+      cartCtx.setCartData(cartItems);
+    })
+    .catch(error => {
+      console.error("Error fetching cart items:", error);
+    });
+};
+
+
+
 
   const CartProducts = () => {
+
     if (!cartCtx.cartData || cartCtx.cartData.length === 0) {
       return (
         <Row>
@@ -19,11 +73,12 @@ const Cart = () => {
       );
     }
 
-    const totalQuantity = cartCtx.cartData.reduce(
-      (total, item) => total + item.quantity * item.price,
-      0
-    );
-
+    const totalPrice = cartCtx.cartData.reduce(
+    (total, item) => total + item.price * item.quantity, // Multiply price by quantity
+    0
+  );
+      
+    
     const handleRemoveItem = (title) => {
       cartCtx.removeFromCart(title);
     };
@@ -63,7 +118,7 @@ const Cart = () => {
           </div>
         ))}
         <Row>
-          <h4 className="total-price">Total Price: ${totalQuantity}</h4>
+          <h4 className="total-price">Total Price: ${totalPrice}</h4>
         </Row>
       </div>
     );
